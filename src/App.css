@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: #f0f8ff4d;
+  padding-top: 20px;
+}
+
+.search-bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 70px;
+}
+
+.App-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  top: 3px;
+}
+
+/*search*/
+.search{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-input{
+  width: 500px;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 20px;
+
+  border-width: 1px;
+}
+
+.search-button{
+  height: 45px;
+  border-radius: 6px;
+  margin-left: 15px;
+  background: #42d2cd;
+  color: #FFF;
+  font-size: 22px;
+  font-weight: 900;
+  border: 0;
+}
+.search-button:hover{
+  background: #132c42;
+  color: #FFF;
+}
+
+input:focus,
+button:focus{
+  outline:0;
+}
+
+.display-bar{
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+  font-size: 15px;
+  background: rgb(248,248,248);
+}
+.display-bar-text{
+  width: 65%;
+  font-weight: 900;
+}
+
+.search-result{
+  display: flex;
+  padding: 15px;
+}
+.news-left{
+  width: 65%;
+}
+.info-right{
+  width: 35%;
+  text-align: left;
+}
+
+
+
+@media (max-width: 750px) and (min-width: 375px) {
+  .App-left{
+    align-items: start;
+  }
+  .App-logo {
+    width: 300px;
+  }
+}

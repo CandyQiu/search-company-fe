@@ -1,0 +1,21 @@
+.info{
+  padding: 0 10px;
+  text-align: left;
+}
+.company_info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-name{
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.left{
+  width: 120px;
+}
+
+.right{
+  text-align: right;
+}
