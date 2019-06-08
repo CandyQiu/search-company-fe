@@ -6,7 +6,6 @@ import Info from './info';
 import './App.css';
 
 
-
 let fakeData = {
   "payload": {
     "response": [{
@@ -94,12 +93,16 @@ let fakeData = {
 
 let example = fakeData.payload.response;
 
+function clickLink(link) {
+  window.open(link);
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       newsData: example,
+      // newsData: [],
       info: {},
     };
     this.search();
@@ -169,23 +172,23 @@ class App extends Component {
           </div>
           <div className="search">
             <input className="search-input" ref="search_input" placeholder="输入公司名称搜索资讯"  onKeyUp={this.onkeyUp.bind(this)}  />
-            <button className="search-button" onClick={this.search.bind(this)}>Search</button>
+            <button className="search-button" onClick={this.search.bind(this)}>嗅问</button>
           </div>
         </div>
         <div className="display-bar">
-          <div className="display-bar-text">资讯</div>
+          <div className="display-bar-text">资讯信息</div>
         </div>
 
         <div className="search-result">
           <div className="news-left">
             {
                 !!newsData && newsData.map((news, news_index, news_array) => {
-                  return <News key={"new_"+news_index}></News>
+                  return <News key={"new_"+news_index} {...news} clickLink={clickLink}></News>
                   })
             }
           </div>
           <div className="info-right">
-            <Info info={info}></Info>
+            <Info info={info} clickLink={clickLink}></Info>
           </div>
         </div>
 

@@ -2,47 +2,64 @@ import React, {
   Component
 } from 'react';
 import {
-  Tag,
   Table,
 } from 'antd';
-import './index.css';
+import './index.less';
 
 //列
 let columns = [{
   title: 'metrix',
   dataIndex: 'metrix',
+  width: "33%",
+  key: 'metrix',
 }, {
   title: 'datetime',
   dataIndex: 'datetime',
+  key: 'datetime',
+  width: "33%",
 }, {
   title: 'quantity',
   dataIndex: 'quantity',
+  key: 'quantity',
+  width: "33%",
 }];
 class News extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hide: true,
+    };
+  }
   render() {
     let {
-      tags,
-      data,
       url,
       title,
       pubTime,
       source,
       financialNewsTagList,
+      clickLink
     } = this.props;
-    // } = example;
-    // console.log(example);
+    console.log(financialNewsTagList);
 
-    //列中值
-    // let data = financialNewsTagList;
-
+    let {
+      hide,
+    } = this.state;
+    hide = financialNewsTagList.length <= 2 ? false : hide;
     return (
-      <div className="News">
+      <div className="news">
         <div className="news-title">
-          <a href={url}>{title}</a>
+          <a href="#/" onClick={()=>clickLink(url)}>{title}</a>
         </div>
-        <div className="table">
-          <Table columns={columns} dataSource={financialNewsTagList} size="middle" />
+        <div className="table" style={{height:hide? 160 : "auto"}}>
+          <Table columns={columns} dataSource={financialNewsTagList} pagination={false} size="middle" />
         </div>
+        {
+          hide &&
+          <div className="hide-more-than-two" onClick={()=>{this.setState({hide: false})}}>
+      <div className="hide-effect"></div>
+            <div className="text"><span>展开全部</span></div>
+          </div>
+        }
         <div className="last-line">
           <div className="time">
             <span className="text">发布时间：</span>
