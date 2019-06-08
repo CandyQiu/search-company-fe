@@ -39,8 +39,7 @@ class News extends Component {
       financialNewsTagList,
       clickLink
     } = this.props;
-    console.log(financialNewsTagList);
-
+    // console.log(financialNewsTagList);
     let {
       hide,
     } = this.state;

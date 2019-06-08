@@ -12,22 +12,36 @@ class Info extends Component {
     return (
       <div className="Info">
         <div className="company-name">{info.company_name}</div>
-        <div className="company_info legal_person">
-          <div className="left">法人：</div>
-          <div className="right">{info.legal_person}</div>
-        </div>
-        <div className="company_info registration_capital">
-          <div className="left">注册资本：</div>
-          <div className="right">{info.registration_capital}</div>
-        </div>
-        <div className="company_info established_time">
-          <div className="left">注册时间：</div>
-          <div className="right">{info.established_time}</div>
-        </div>
-        <div className="company_info company_address">
-          <div className="left">注册地址：</div>
-          <div className="right">{info.company_address}</div>
-        </div>
+        {
+          info.legal_person &&
+          <div className="company_info legal_person">
+            <div className="left">法人：</div>
+            <div className="right">{info.legal_person}</div>
+          </div>
+        }
+        {
+          info.registration_capital &&
+          <div className="company_info registration_capital">
+            <div className="left">注册资本：</div>
+            <div className="right">{info.registration_capital}</div>
+          </div>
+        }
+        {
+          info.established_time &&
+          <div className="company_info established_time">
+            <div className="left">注册时间：</div>
+            <div className="right">{info.established_time}</div>
+          </div>
+        }
+        { info.company_address &&
+          <div className="company_info company_address">
+            <div className="left">注册地址：</div>
+            <div className="right">{info.company_address}</div>
+          </div>
+        }
+
+
+
         {
         // <div className="company_info">
         //   <div className="left">企业的统一信用码：</div>
